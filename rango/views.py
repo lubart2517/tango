@@ -4,5 +4,5 @@ def index(request):
 	context_dict = {'boldmessage': "I am bold "}
 	return render(request, 'rango/index.html', context_dict)
 def about(request):
-	return HttpResponse("About Rango <br/> <a href='/rango'>Home page</a")
+	return render(request, 'rango/about.html')
 # Create your views here.
