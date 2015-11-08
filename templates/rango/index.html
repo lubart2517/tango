@@ -3,14 +3,20 @@
 <html>
 
 	<head>
-		<title>Rangos</title>
-		<link rel="stylesheet" href="{% static "css/base.css" %}" /> <!-- CSS -->
-		<script src="{% static "js/jquery.js" %}"></script> <!-- JavaScript -->
+		<title>Rango</title>
 	</head>
 	
 	<body>
-		<h1>Rango says...</h1>
-		hello world! {{ boldmessage}}
+		<h1>Rango says...hello world!</h1>
+		{% if categories %}
+			<ul>
+				{% for category in categories %}
+				<li>{{ category.name}}</li>
+				{% endfor %}
+			<ul>
+		{% else %}
+			<strong>There are no categories present.</strong>
+		{% endif %}
 		<a href="/rango/about/">About Rango</a><br />
 		<img src="/static/images/pes.jpg" alt="Picture of Pes" /> <!-- New line -->
 	</body>
