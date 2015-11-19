@@ -44,14 +44,27 @@ def add_page(request, category_name_slug):
 		cat = Category.objects.get(slug=category_name_slug)
 	except Category.DoesNotExist:
 		cat = None
+	pages_list=Page.objects.order_by('views')
 	if request.method == 'POST':
 		form = PageForm(request.POST)
+		for p in pages_list:
+					if p.title == form['title'] or p.url==form['url']:
+						result=False
+						form.is_not_valid()
 		if form.is_valid():
 			if cat:
 				page = form.save(commit=False)
+				page.url = form.cleaned_data['url']
+				page.title = form.cleaned_data['title']
 				page.category = cat
 				page.views = 0
-				page.save()
+				result=True
+				for p in pages_list:
+					if p.title == page.title or p.url==page.url:
+						result=False
+						form = PageForm(request.POST)
+				if result==True:
+					page.save()
 				return category(request, category_name_slug)
 		else:
 			print (form.errors)
