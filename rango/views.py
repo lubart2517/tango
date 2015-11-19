@@ -47,10 +47,6 @@ def add_page(request, category_name_slug):
 	pages_list=Page.objects.order_by('views')
 	if request.method == 'POST':
 		form = PageForm(request.POST)
-		for p in pages_list:
-					if p.title == form['title'] or p.url==form['url']:
-						result=False
-						form.is_not_valid()
 		if form.is_valid():
 			if cat:
 				page = form.save(commit=False)
@@ -62,7 +58,7 @@ def add_page(request, category_name_slug):
 				for p in pages_list:
 					if p.title == page.title or p.url==page.url:
 						result=False
-						form = PageForm(request.POST)
+						raise form.ValidationError(_('Invalid url or title', code='invalid'))
 				if result==True:
 					page.save()
 				return category(request, category_name_slug)
