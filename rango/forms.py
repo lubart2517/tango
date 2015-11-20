@@ -22,7 +22,13 @@ class PageForm(forms.ModelForm):
 	def clean(self):
 		cleaned_data = self.cleaned_data
 		url = cleaned_data.get('url')
-		
+		title = cleaned_data.get('title')
+		pages_list=Page.objects.order_by('views')
+		for inserted_page in pages_list:
+			if inserted_page.title==title:
+				raise forms.ValidationError("Inserted title already exist")
+			if inserted_page.url==url:
+				raise forms.ValidationError("Inserted url already exist")
 		if url and not url.startswith('http://'):
 			url = 'http://' + url
 			cleaned_data['url']= url

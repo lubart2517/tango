@@ -50,17 +50,9 @@ def add_page(request, category_name_slug):
 		if form.is_valid():
 			if cat:
 				page = form.save(commit=False)
-				page.url = form.cleaned_data['url']
-				page.title = form.cleaned_data['title']
 				page.category = cat
 				page.views = 0
-				result=True
-				for p in pages_list:
-					if p.title == page.title or p.url==page.url:
-						result=False
-						raise form.ValidationError(_('Invalid url or title', code='invalid'))
-				if result==True:
-					page.save()
+				page.save()
 				return category(request, category_name_slug)
 		else:
 			print (form.errors)
