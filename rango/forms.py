@@ -26,9 +26,10 @@ class PageForm(forms.ModelForm):
 		pages_list=Page.objects.order_by('views')
 		for inserted_page in pages_list:
 			if inserted_page.title==title:
-				raise forms.ValidationError("Inserted title already exist")
+				self.add_error('title','Inserted title already exist')
+				
 			if inserted_page.url==url:
-				raise forms.ValidationError("Inserted url already exist")
+				self.add_error('url','Inserted url already exist')
 		if url and not url.startswith('http://'):
 			url = 'http://' + url
 			cleaned_data['url']= url
