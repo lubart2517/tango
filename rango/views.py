@@ -16,7 +16,7 @@ def index(request):
 	context_dict['pages']=pages_list
 	return render(request,'rango/index.html',context_dict)
 def about(request):
-	return render(request, 'rango/about.html')
+	return render(request, 'rango/about.html', {})
 def category(request, category_name_slug):
 	context_dict={}
 	
@@ -123,7 +123,7 @@ def user_login(request):
         return render(request, 'rango/login.html', {})
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 @login_required
 def user_logout(request):
