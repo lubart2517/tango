@@ -1,14 +1,10 @@
+{% extends 'base.html' %}
 
+{% load staticfiles %}
 
-<html>
+{% block title %}Home page{% endblock %}
 
-
-	<head>
-		<title>Home page </title>
-	</head>
-	<body>
-		<h2>Great and powerful django site))) </h2>
-		<a href ="/rango/">Rango application</a>
-	</body>
-	
-<html>
+{% block body_block %}
+<h2>Great and powerful django site))) </h2>
+	<a href ="/rango/">Rango application</a>
+{% endblock %}
