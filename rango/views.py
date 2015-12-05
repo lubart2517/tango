@@ -44,7 +44,10 @@ def index(request):
 
 	return response
 def about(request):
-	return render(request, 'rango/about.html', {})
+	context_dict={}
+	visits = request.session.get('visits')
+	context_dict['visits'] = visits
+	return render(request, 'rango/about.html', context_dict)
 def category(request, category_name_slug):
 	context_dict={}
 	
