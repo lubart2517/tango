@@ -95,6 +95,7 @@ def add_page(request, category_name_slug):
 		form= PageForm()
 	context_dict = {'form':form, 'category':cat}
 	return render(request, 'rango/add_page.html', context_dict)	
+"""
 def register(request):
 	registered=False
 	if request.method == 'POST':
@@ -118,9 +119,9 @@ def register(request):
 		profile_form=UserProfileForm()
 	return render(request,
 			'rango/register.html',
-			{'user_form':user_form, 'profile_form':profile_form, 'registered':registered})
+			{'user_form':user_form, 'profile_form':profile_form, 'registered':registered})"""
 	
-def user_login(request):
+"""def user_login(request):
 
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
@@ -151,16 +152,22 @@ def user_login(request):
     else:
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
-        return render(request, 'rango/login.html', {})
+        return render(request, 'rango/login.html', {})"""
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html')
 
-@login_required
+"""@login_required
 def user_logout(request):
     # Since we know the user is logged in, we can now just log them out.
     logout(request)
 
     # Take the user back to the homepage.
-    return HttpResponseRedirect('/rango/')
+    return HttpResponseRedirect('/rango/')"""
+"""def pass_change(request):
+    # Since we know the user is logged in, we can now just log them out.
+    password_change(request)
+
+    # Take the user back to the homepage.
+    return render(request, 'rango/pass_change.html', {})"""
 # Create your views here.
