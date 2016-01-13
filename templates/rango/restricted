@@ -2,8 +2,8 @@
 
 {% load staticfiles %}
 
-{% block title %}About Rango{% endblock %}
+{% block title %}Restricted page{% endblock %}
 
 {% block body_block %}
-<h2>This website maked for real thing </h2>
+<h2>"Since you're logged in, you can see this text!" </h2>
 {% endblock %}
