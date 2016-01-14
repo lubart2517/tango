@@ -4,12 +4,19 @@
 
 {% block title %}Add a category{% endblock %}
 {% block body_block %}
-	
 	<form id="category_form" method="post" action="/rango/add_category/">
 		<h2 class=”form-signin-heading”>Add a Category</a></h2>
-		{{ form|as_bootstrap }}
-		<br/>
+		{% csrf_token %}
+		{% for hidden in form.hidden_fields %}
+			{{ hidden }}
+		{% endfor %}
 		
-		<button class=”btn-primary” type=”submit” name=”submit”>Create Category</button>
+		{% for field in form.visible_fields %}
+			{{ field.errors }}
+			{{ form.non_field_errors }}
+			{{ field.help_text }}
+			{{ field }}
+		{% endfor %}
+		<button type=”submit” class="btn primary">Create Category</button>
 	</form>
 {% endblock %}
