@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
-{% load bootstrap_toolkit %}
+
 {% load staticfiles %}
 
 {% block title %}Add a category{% endblock %}
+.yellow {
+    background-color: yellow;
+    border: 1px solid black;
+}
 {% block body_block %}
 	<form id="category_form" method="post" action="/rango/add_category/">
 		<h2 class=”form-signin-heading”>Add a Category</a></h2>
@@ -17,6 +21,6 @@
 			{{ field.help_text }}
 			{{ field }}
 		{% endfor %}
-		<button type=”submit” class="btn primary">Create Category</button>
+		<button type=”submit” class="btn-success">Create Category</button>
 	</form>
 {% endblock %}
