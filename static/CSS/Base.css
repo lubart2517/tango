@@ -3,7 +3,8 @@
 .navbar-header{float:left}
 .navbar-brand{color:white;text-decoration: none;}
 .navbar-brand:hover{color:red;text-decoration: underline;}
-.navbar-headerone{float:right}
-.navbar-nav{list-style-type: none;}
-.navbar-nav li{color:#white;display: inline;}
-.navbar-nav li:hover{color:red;text-decoration: underline;}
+.navbar-header_one{float:right}
+.navbar-nav{color:#eee;float:right}
+.navbar-nav li{display: inline;}
+.navbar-nav a{color:#eee;display: inline;text-decoration: none;}
+.navbar-nav a:hover{color:red;text-decoration: underline;}

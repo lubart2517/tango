@@ -11,10 +11,7 @@
 
     <div class="navbar">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/rango/">Rango</a>
-			</div>
-			<div class="navbar-headerone">
+			<a class="navbar-brand" href="/rango/">Rango</a>
 				<ul class="navbar-nav">
 					<li><a href="{% url 'index' %}">Home</a></li>
                     {% if user.is_authenticated %}
@@ -31,7 +28,6 @@
 						<li><a href="/">Home page</a></li>
 
 				</ul>
-			</div>
 		</div>
 	</div>
 
