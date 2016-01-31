@@ -7,6 +7,6 @@
 .navbar-nav{color:#eee;float:right}
 .navbar-nav .left{float:left}
 .navbar-nav li{display: inline;}
-.navbar-nav li:nth-child(4){background-color:green;}
+/*.navbar-nav li:nth-child(4){background-color:green;}*/
 .navbar-nav a{color:aqua;display: inline;text-decoration: none;}
 .navbar-nav a:hover{color:red;text-decoration: underline;}
