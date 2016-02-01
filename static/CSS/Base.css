@@ -23,4 +23,6 @@
 	background: #E9F5FE;
 }
 .active{color:red}
+.active:hover{color:aqua}
 .active a{color:red;text-decoration: underline;}
+.active a:hover{color:aqua;text-decoration: underline;}
