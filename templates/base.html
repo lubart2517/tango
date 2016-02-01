@@ -12,9 +12,8 @@
 
     <div class="navbar">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/rango/">Rango</a>
+			<a class="navbar-brand" href="/rango/">Rango page</a>
 			<ul class="navbar-nav">
-				<li><a href="{% url 'index' %}">Home</a></li>
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
 					<li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
