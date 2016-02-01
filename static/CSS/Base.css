@@ -10,3 +10,5 @@
 .navbar-nav li:nth-child(4){background-color:green;}
 .navbar-nav a{color:aqua;display: inline;text-decoration: none;}
 .navbar-nav a:hover{color:red;text-decoration: underline;}
+.signing{float:left;color:red;display: inline;}
+.sidebar{padding-right:800px;}
