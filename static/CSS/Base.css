@@ -12,3 +12,15 @@
 .navbar-nav a:hover{color:red;text-decoration: underline;}
 .signing{float:left;color:red;display: inline;}
 .sidebar{padding-right:800px;}
+.main {
+	padding: 15px;
+	float: left;
+	width: 70%;
+}
+.sidebar {
+	margin-left: 85%;
+	padding: 15px;
+	background: #E9F5FE;
+}
+.active{color:red}
+.active a{color:red;text-decoration: underline;}
