@@ -13,14 +13,16 @@
 .signing{float:left;color:red;display: inline;}
 .sidebar{padding-right:800px;}
 .main {
+	margin-left: 10%;
 	padding: 15px;
 	float: left;
 	width: 70%;
 }
 .sidebar {
-	margin-left: 85%;
+	margin-left: 84%;
 	padding: 15px;
 	background: #E9F5FE;
+	border:5px solid black;
 }
 .active{color:red}
 .active:hover{color:aqua}
