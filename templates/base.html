@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
 		<link rel="icon" href="/static/images/python.png">
-		<title>Rango - {% block title %}How to Tango with Django!{% endblock %}</title>
+		<title>Ранго - {% block title %}Як зтанцювати танго!{% endblock %}</title>
 		<link href="/static/CSS/Base.css" rel="stylesheet">
 		<link href="/static/CSS/dashboard.css" rel="stylesheet">
     </head>
@@ -12,21 +12,20 @@
 
     <div class="navbar">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/rango/">Rango page</a>
+			<a class="navbar-brand" href="/rango/">Сторінка Ранго</a>
 			<ul class="navbar-nav">
 				{% if user.is_authenticated %}
-					<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-					<li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-					<li><a href="{% url 'add_category' %}">Add a New Category</a></li>
-					<li><a href="{% url 'auth_password_change' %}">Change password</a></li>
+					<li><a href="{% url 'restricted' %}">Таємна кіната</a></li>
+					<li><a href="{% url 'auth_logout' %}?next=/rango/">Вийти</a></li>
+					<li><a href="{% url 'add_category' %}">Додати нову категорію</a></li>
+					<li><a href="{% url 'auth_password_change' %}">Змінити пароль</a></li>
 				{% else %}
-					<li><a href="{% url 'registration_register' %}">Register Here</a></li>
-					<li><a href="{% url 'auth_login' %}">Login</a></li>
+					<li><a href="{% url 'registration_register' %}">Зареєструватись</a></li>
+					<li><a href="{% url 'auth_login' %}">Увійти</a></li>
 				{% endif %}
-					<li><a href="{% url 'about' %}">About</a></li>
-					<li><a href="{% url 'index' %}">Index page</a></li>
-					<li><a href="/">Home page</a></li>
-					<li><a href="{% url 'search' %}">Search</a></li>
+					<li><a href="{% url 'about' %}">Про проект</a></li>
+					<li><a href="/">Початкова сторінка</a></li>
+					<li><a href="{% url 'search' %}">Пошук</a></li>
 
 			</ul>
 		</div>

@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*- 
 from django.db import models
-from django.template.defaultfilters import slugify
+from slugify import slugify
 from django.contrib.auth.models import User
 class Category(models.Model):
 	name = models.CharField(max_length=128, unique=True)

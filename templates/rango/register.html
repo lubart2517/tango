@@ -2,17 +2,17 @@
 
 {% load staticfiles %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Реєстрація{% endblock %}
 
 {% block body_block %}
     
-	<h1>Register with Rango</h1>
+	<h1>Зареєструйтесь в Ранго</h1>
 
 	{% if registered %}
-	Rango says: <strong>thank you for registering!</strong>
-	<a href="/rango/">Return to the homepage.</a><br />
+	Ранго каже: <strong>Дякую за реєстрацію!</strong>
+	<a href="/rango/">Повернутись на головну.</a><br />
 	{% else %}
-	Rango says: <strong>register here!</strong><br />
+	Rango says: <strong>Зареєструйся тут!</strong><br />
 
 	<form id="user_form" method="post" action="/rango/register/"
 			enctype="multipart/form-data">
@@ -26,7 +26,7 @@
 		{{ profile_form.as_p }}
 
 		<!-- Provide a button to click to submit the form. -->
-		<input type="submit" name="submit" value="Register" />
+		<input type="submit" name="submit" value="Зареєструватись" />
 	</form>
 	{% endif %}
     

@@ -7,12 +7,12 @@
 {% block body_block %}
 	{% if user.is_authenticated %}
 	<div class="page-header">
-		<h1>Rango says... hello {{ user.username }}!</h1>
+		<h1>Ранго каже привіт {{ user.username }}!</h1>
 	{% else %}
-		<h1>Rango says... hello world!</h1>
+		<h1>Ранго каже привіт!</h1>
 	{% endif %}
 	</div>
-	<h2>Our site categories for learning</h2>
+	<h2>Категорії сайту для навчання</h2>
 	{% if categories %}
 		<ul>
 			{% for category in categories %}
@@ -20,9 +20,9 @@
 			{% endfor %}
 		<ul>
 	{% else %}
-		<strong>There are no categories present.</strong>
+		<strong>Немає категорій.</strong>
 	{% endif %}
-	<h2>Top 5 most viewed pages</h2>
+	<h2>Топ 5 найвідвідуваніших сторінок</h2>
 	{% if pages %}
 		<ul>
 			{% for page in pages %}
@@ -30,9 +30,9 @@
 			{% endfor %}
 		</ul>
 		{% else %}
-			<strong>No pages currently in category.</strong>
+			<strong>В категорії немає сторінок.</strong>
 	{% endif %}
 	<h1>                           </h1>	
 	<img src="/static/images/django.png" alt="Picture of Pes" /> <!-- New line -->
-	<h3>You visited this page {{visits}} times</h3>
+	<h3>Ви відвідали цю сторінку {{visits}} разів</h3>
 {% endblock %}

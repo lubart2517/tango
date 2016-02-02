@@ -13,9 +13,13 @@
 						<li>
 						<a href="{% url 'goto' %}?page_id={{page.id}}">{{ page.title }}</a>
 				{% if page.views > 1 %}
-					({{ page.views }} views)
+					{% if page.views > 4 %}
+						({{ page.views }} переглядів)
+						{% elif page.views < 5 %}
+						({{ page.views }} перегляди)
+					{% endif %}
 					{% elif page.views == 1 %}
-					({{ page.views }} view)
+					({{ page.views }} перегляд)
 				{% endif %}
 						</li>
 			{% endfor %}
@@ -25,7 +29,7 @@
                 {% endif %}
 
         {% if user.is_authenticated %}
-                <a href="/rango/category/{{category.slug}}/add_page/">Add a Page</a>
+                <a href="/rango/category/{{category.slug}}/add_page/">Додати сторінку</a>
                 {% endif %}
         {% else %}
                  The specified category {{ category_name }} does not exist!
