@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 {% load rango_extras %}
+{% load staticfiles %}
+
+
 
 <html lang="en">
     <head>
@@ -35,5 +38,7 @@
 	</div>
 	
 	{% block body_block %}{% endblock %}
+	<script src="/static/js/jquery-1.11.1.js"></script>
+	<script src="{%static 'js/rango_jquery.js' %}"></script
 	</body>
 </html>
