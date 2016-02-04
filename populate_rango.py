@@ -17,11 +17,11 @@ def populate():
 
     add_page(cat=python_cat,
         title="Як думати як компютерний науковець",
-        url="http://www.greenteapress.com/thinkpython/", views=2)
+        url="http://www.greenteapress.com/thinkpython/", views=1)
 
     add_page(cat=python_cat,
         title="Пайтон за 10 хвилин",
-        url="http://www.korokithakis.net/tutorials/python/", views=3)
+        url="http://www.korokithakis.net/tutorials/python/", views=1)
 
     django_cat = add_cat("Джанго",views=64,likes=32)
 
@@ -31,7 +31,7 @@ def populate():
 
     add_page(cat=django_cat,
         title="Джанго Рокс",
-        url="http://www.djangorocks.com/", views=5)
+        url="http://www.djangorocks.com/", views=1)
 
     add_page(cat=django_cat,
         title="Як зтанцювати танго з Джанго",
