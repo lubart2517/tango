@@ -1,10 +1,9 @@
-$(document).ready(function() {
-	$("#about-btn").click( function(event) {
+$(document).ready(function () {
+document.getElementById('about-btn').addEventListener(
+	'click',
+	function() {
 		alert("You clicked the button using JQuery!");
-	});
-	$("#about-btn").click( function(event) {
-		msgstr = $("#msg").html()
-        msgstr = msgstr + "o"
-        $("#msg").html(msgstr)
- });
-});
+	},
+	false
+);
+	})
