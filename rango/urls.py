@@ -15,4 +15,5 @@ urlpatterns = patterns('',
 		#url(r'^pass_change/$', views.pass_change, name='pass_change'),
 		url(r'^goto/$', views.track_url, name='goto'),
 		url(r'^like_category/$', views.like_category, name='like_category'),
+		url(r'^suggest_category/$', views.suggest_category, name='suggest_category'),
 		)

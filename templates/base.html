@@ -38,6 +38,16 @@
 
 	<div class="sidebar">
 		{% block side_block %}{% get_category_list category %}{% endblock %}
+		<ul>
+        <li class= "leftlist">Find a Category</li>
+        <form>
+        <label></label>
+        <li class= "leftlist"><input type="text" name="suggestion" value="" id="suggestion" /></li>
+        </form>
+		</ul>
+		<div id="cats">
+		</div>
+		
 	</div>
 	
 	{% block body_block %}{% endblock %}

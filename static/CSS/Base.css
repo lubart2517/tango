@@ -11,7 +11,6 @@
 .navbar-nav a{color:aqua;display: inline;text-decoration: none;}
 .navbar-nav a:hover{color:red;text-decoration: underline;}
 .signing{float:left;color:red;display: inline;}
-.sidebar{padding-right:800px;}
 .main {
 	margin-left: 10%;
 	padding: 15px;
@@ -22,9 +21,9 @@
 	margin-left: 84%;
 	padding: 15px;
 	background: #E9F5FE;
-	border:5px solid black;
 }
 .active{color:red}
 .active:hover{color:aqua}
 .active a{color:red;text-decoration: underline;}
 .active a:hover{color:aqua;text-decoration: underline;}
+.leftlist{margin-left: -50%;}
