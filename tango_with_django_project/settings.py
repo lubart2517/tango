@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.utils.translation import ugettext_lazy as _
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
@@ -51,6 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.locale.LocaleMiddleware'
 )
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
@@ -71,8 +73,15 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+#LangCode='uk'
+LANGUAGE_CODE = 'uk'
+LANGUAGES = [
+    ('uk', 'Ukrainian'),
+    ('en', 'English'),
+]
+LOCALE_PATHS = (
+os.path.join(BASE_DIR, 'locale'),
+)
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

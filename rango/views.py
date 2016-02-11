@@ -151,25 +151,30 @@ def like_category(request):
 
 	return HttpResponse(likes)
 def get_category_list(max_results=0, starts_with=''):
-        cat_list = []
-        if starts_with:
-                cat_list = Category.objects.filter(name__istartswith=starts_with)
+	cat_list = []
+	if starts_with:
+		for low_cat in Category.objects.all():
+			low_cat_name=low_cat.name.lower()
+			if low_cat_name[:len(starts_with)]==starts_with.lower():
+				cat_list.append(low_cat)
+	else:
+		cat_list = Category.objects.all()
 
-        if max_results > 0:
-                if cat_list.count() > max_results:
-                        cat_list = cat_list[:max_results]
+	if max_results > 0:
+		if (len(cat_list) > max_results):
+			cat_list = cat_list[:max_results]
 
-        return cat_list
+	return cat_list
 def suggest_category(request):
 
-        cat_list = []
-        starts_with = ''
-        if request.method == 'GET':
-                starts_with = request.GET['suggestion']
+	cat_list = []
+	starts_with = ''
+	if request.method == 'GET':
+		starts_with = request.GET['suggestion']
 
-        cat_list = get_category_list(8, starts_with)
+	cat_list = get_category_list(8, starts_with)
 
-        return render(request, 'rango/category_list.html', {'cat_list': cat_list })
+	return render(request, 'rango/category_list.html', {'cat_list': cat_list })
 @login_required
 def auto_add_page(request):
 	cat_id = None
@@ -190,6 +195,32 @@ def auto_add_page(request):
 			context_dict['pages'] = pages
 
 	return render(request, 'rango/page_list.html', context_dict)
+def get_category_list_low(max_results=0, starts_with=''):
+	cat_list = []
+	if starts_with:
+		for low_cat in Category.objects.all():
+			#cat_list.append(low_cat)
+			low_cat_name=low_cat.name.lower()
+			if low_cat_name[:len(starts_with)]==starts_with.lower():
+				cat_list.append(low_cat)
+		#cat_list = Category.objects.filter(name__startswith=starts_with)
+	else:
+		cat_list = Category.objects.all()
+
+	if max_results > 0:
+		if (len(cat_list) > max_results):
+			cat_list = cat_list[:max_results]
+
+	return cat_list
+def suggest_category_low(request):
+
+	cat_list = []
+	starts_with = 'Д'
+	if request.method == 'GET':
+		starts_with = "па"
+	cat_list = get_category_list_low(8, starts_with)
+
+	return render(request, 'rango/category_list_low.html', {'cat_list': cat_list })
 """
 def register(request):
 	registered=False

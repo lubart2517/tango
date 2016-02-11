@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load rango_extras %}
 {% load staticfiles %}
-
+{% load i18n %}
 
 
 <html lang="en">
@@ -15,7 +15,7 @@
 		<link href="/static/CSS/dashboard.css" rel="stylesheet">
     </head>
 	<body>
-
+	
     <div class="navbar">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/rango/">Сторінка Ранго</a>
@@ -35,7 +35,16 @@
 			</ul>
 		</div>
 	</div>
-
+	{% if LANGUAGE_CODE == 'uk' %}
+		{% get_current_language as LANGUAGE_CODE %}
+		<!-- Current language: {{ LANGUAGE_CODE }} -->
+		<p>{% trans "Welcome to our page" %}</p>
+	{% endif %}
+	{% language 'uk' %}
+		{% get_current_language as LANGUAGE_CODE %}
+		<!-- Current language: {{ LANGUAGE_CODE }} -->
+		<p>{% trans "Welcome to our page" %}</p>
+	{% endlanguage %}
 	<div class="sidebar">
 		{% block side_block %}{% get_category_list category %}{% endblock %}
 		<ul>
