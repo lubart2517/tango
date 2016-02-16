@@ -40,11 +40,11 @@
 		<!-- Current language: {{ LANGUAGE_CODE }} -->
 		<p>{% trans "Welcome to our page" %}</p>
 	{% endif %}
-	{% language 'uk' %}
-		{% get_current_language as LANGUAGE_CODE %}
-		<!-- Current language: {{ LANGUAGE_CODE }} -->
-		<p>{% trans "Welcome to our page" %}</p>
-	{% endlanguage %}
+	
+	{% get_current_language as LANGUAGE_CODE %}
+	<!-- Current language: {{ LANGUAGE_CODE }} -->
+	<p>{% trans "Welcome to our page" %}</p>
+	
 	<div class="sidebar">
 		{% block side_block %}{% get_category_list category %}{% endblock %}
 		<ul>
