@@ -46,6 +46,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+	'solid_i18n.middleware.SolidLocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,6 +76,7 @@ DATABASES = {
 
 #LangCode='uk'
 LANGUAGE_CODE = 'uk'
+SOLID_I18N_USE_REDIRECTS = False
 LANGUAGES = [
     ('uk', 'Ukrainian'),
     ('en', 'English'),

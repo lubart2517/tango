@@ -44,7 +44,25 @@
 	{% get_current_language as LANGUAGE_CODE %}
 	<!-- Current language: {{ LANGUAGE_CODE }} -->
 	<p>{% trans "Welcome to our page" %}</p>
-	
+	<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.get_full_path}}" />
+    <ul >
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <li>
+                <button type="submit"
+                        name="language"
+                        value="{{ language.code }}"
+                        class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}">
+                    {{ language.name_local }}
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+	</form>
 	<div class="sidebar">
 		{% block side_block %}{% get_category_list category %}{% endblock %}
 		<ul>
