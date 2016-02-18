@@ -26,4 +26,5 @@
 .active:hover{color:aqua}
 .active a{color:red;text-decoration: underline;}
 .active a:hover{color:aqua;text-decoration: underline;}
-.leftlist{margin-left: -50%;}
+.sidebar li{list-style-type:None;}
+.leftlist{margin-left: -40%;}
