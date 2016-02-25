@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Main page{% endblock %}
+	
+{% block body_block %}
+	{% if user.is_authenticated %}
+	<div class="page-header">
+		<h1>Ранго каже привіт {{ user.username }}!</h1>
+	{% else %}
+		<h1>Ранго каже привіт!</h1>
+	{% endif %}
+	</div>
+{% endblock %}
