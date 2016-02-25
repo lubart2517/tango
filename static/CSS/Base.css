@@ -3,6 +3,8 @@
 .navbar-header{float:left}
 .navbar-brand{color:white;text-decoration: none;float:left;;margin-top:15px}
 .navbar-brand:hover{color:red;text-decoration: underline;}
+.navbar-brand-lang{color:white;text-decoration: none;margin-left: 4%;;margin-top:5px}
+.navbar-brand-lang-selected{color:red;text-decoration: none;margin-left: 4%;margin-top:5px}
 .navbar-header_one{float:right}
 .navbar-nav{color:#eee;float:right}
 .navbar-nav .left{float:left}
@@ -28,3 +30,4 @@
 .active a:hover{color:aqua;text-decoration: underline;}
 .sidebar li{list-style-type:None;}
 .leftlist{margin-left: -40%;}
+.selected a{border:2px solid; border-color:black;}

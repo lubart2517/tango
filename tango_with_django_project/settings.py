@@ -40,8 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'rango',
-	'bootstrap_toolkit',
 	'registration',
+	'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,7 +76,6 @@ DATABASES = {
 
 #LangCode='uk'
 LANGUAGE_CODE = 'uk'
-SOLID_I18N_USE_REDIRECTS = False
 LANGUAGES = [
     ('uk', 'Ukrainian'),
     ('en', 'English'),
@@ -99,6 +98,15 @@ LOGIN_URL = '/rango/login/'
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+)
 TEMPLATE_DIRS = (
 TEMPLATE_PATH,
 )

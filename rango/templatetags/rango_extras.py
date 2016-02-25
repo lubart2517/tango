@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from django import template
 from rango.models import Category
 
@@ -7,3 +7,9 @@ register = template.Library()
 @register.inclusion_tag('rango/cats.html')
 def get_category_list(cat=None):
     return {'cats': Category.objects.all(), 'act_cat': cat}
+
+
+def Concantenate(value, arg):
+    conc=value[3:]
+    return (str(arg) + str(conc))
+register.filter(Concantenate)

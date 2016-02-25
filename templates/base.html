@@ -15,10 +15,15 @@
 		<link href="/static/CSS/dashboard.css" rel="stylesheet">
     </head>
 	<body>
+	{% get_current_language as LANGUAGE_CODE %}
+    {% with request.get_full_path|Concantenate:"/uk" as uk_path %}
 
+    {% with request.get_full_path|Concantenate:"/en" as en_path %}
     <div class="navbar">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/rango/">Сторінка Ранго</a>
+			<a class="{% if LANGUAGE_CODE == 'uk' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{uk_path}}">Українська</a>
+			<a class="{% if LANGUAGE_CODE == 'en' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{en_path}}">English</a>
 			<ul class="navbar-nav">
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'restricted' %}">Таємна кіната</a></li>
@@ -35,34 +40,10 @@
 			</ul>
 		</div>
 	</div>
-	{% if LANGUAGE_CODE == 'uk' %}
-		{% get_current_language as LANGUAGE_CODE %}
-		<!-- Current language: {{ LANGUAGE_CODE }} -->
-		<p>{% trans "Welcome to our page" %}</p>
-	{% endif %}
 
-	{% get_current_language as LANGUAGE_CODE %}
+
 	<!-- Current language: {{ LANGUAGE_CODE }} -->
 	<p>{% trans "Welcome to our page" %}</p>
-	<form action="{% url 'set_language' %}" method="post">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ request.get_full_path}}" />
-    <ul >
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-            <li>
-                <button type="submit"
-                        name="language"
-                        value="{{ language.code }}"
-                        class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}">
-                    {{ language.name_local }}
-                </button>
-            </li>
-        {% endfor %}
-    </ul>
-	</form>
 	<div class="sidebar">
 		{% block side_block %}{% get_category_list category %}{% endblock %}
 		<ul>
@@ -76,7 +57,8 @@
 		</div>
 
 	</div>
-
+    {% endwith %}
+    {% endwith %}
 	{% block body_block %}{% endblock %}
 	</body>
 </html>

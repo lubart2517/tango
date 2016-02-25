@@ -19,3 +19,6 @@ urlpatterns = patterns('',
 		url(r'^auto_add_page/$', views.auto_add_page, name='auto_add_page'),
 		url(r'^suggest_category_low/$', views.suggest_category_low, name='suggest_category_low'),
 		)
+urlpatterns += patterns('',
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+)
