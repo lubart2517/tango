@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from rango.models import Category
 from rango.models  import Page
 from rango.forms import CategoryForm
 from rango.forms import PageForm
-from rango.forms import UserForm, UserProfileForm
-from django.contrib.auth import authenticate, login
+#from rango.forms import UserForm, UserProfileForm
+#from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+#from django.contrib.auth import logout
 from datetime import datetime
 from rango.bing_search import run_query
 from django.shortcuts import redirect
@@ -108,7 +108,7 @@ def add_page(request, category_name_slug):
 	else:
 		form= PageForm()
 	context_dict = {'form':form, 'category':cat}
-	return render(request, 'rango/add_page.html', context_dict)	
+	return render(request, 'rango/add_page.html', context_dict)
 def search(request):
 
 	result_list = []
@@ -233,7 +233,7 @@ def register(request):
 			user.save()
 			profile = profile_form.save(commit=False)
 			profile.user = user
-		
+
 			if 'picture' in request.FILES:
 				profile.picture = request.FILES['picture']
 			profile.save()
@@ -246,7 +246,7 @@ def register(request):
 	return render(request,
 			'rango/register.html',
 			{'user_form':user_form, 'profile_form':profile_form, 'registered':registered})"""
-	
+
 """def user_login(request):
 
     # If the request is a HTTP POST, try to pull out the relevant information.

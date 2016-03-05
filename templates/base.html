@@ -21,7 +21,7 @@
     {% with request.get_full_path|Concantenate:"/en" as en_path %}
     <div class="navbar">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="/rango/">Сторінка Ранго</a>
+			<a class="navbar-brand" href="{% url 'index' %}">Сторінка Ранго</a>
 			<a class="{% if LANGUAGE_CODE == 'uk' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{uk_path}}">Українська</a>
 			<a class="{% if LANGUAGE_CODE == 'en' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{en_path}}">English</a>
 			<ul class="navbar-nav">
@@ -35,7 +35,7 @@
 					<li><a href="{% url 'auth_login' %}">Увійти</a></li>
 				{% endif %}
 					<li><a href="{% url 'about' %}">Про проект</a></li>
-					<li><a href="{% url 'polls' %}">Поллс</a></li>
+					<li><a href="{% url 'polls:index' %}">Поллс</a></li>
 					<li><a href="/">Початкова сторінка</a></li>
 
 			</ul>
