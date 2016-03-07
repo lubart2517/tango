@@ -3,7 +3,8 @@ from .models import Question, Choice
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.views import generic
-
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
