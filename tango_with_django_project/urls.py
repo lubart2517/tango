@@ -2,12 +2,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from registration.backends.simple.views import RegistrationView
-from django.conf.urls.i18n import i18n_patterns
+from solid_i18n.urls import solid_i18n_patterns
 class MyRegistrationView(RegistrationView):
     def get_success_url(self,request, user):
         return '/rango/'
 
-urlpatterns = i18n_patterns('',
+urlpatterns = solid_i18n_patterns('',
     # Examples:
     url(r'^$', 'tango_with_django_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),

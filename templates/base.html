@@ -16,14 +16,19 @@
     </head>
 	<body>
 	{% get_current_language as LANGUAGE_CODE %}
-    {% with request.get_full_path|Concantenate:"/uk" as uk_path %}
-
-    {% with request.get_full_path|Concantenate:"/en" as en_path %}
     <div class="navbar">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="{% url 'index' %}">Сторінка Ранго</a>
-			<a class="{% if LANGUAGE_CODE == 'uk' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{uk_path}}">Українська</a>
-			<a class="{% if LANGUAGE_CODE == 'en' %}navbar-brand-lang-selected{%else%}navbar-brand-lang{% endif %}" href ="{{en_path}}">English</a>
+			{% if LANGUAGE_CODE == 'uk' %}
+			    <a class="navbar-brand-lang-selected" href ="{{request.get_full_path}}">Українська</a>
+			{% else %}
+			    <a class="navbar-brand-lang" href ="{{request.get_full_path|Concantenate:""}}">Українська</a>
+			{% endif %}
+			{% if LANGUAGE_CODE == 'en' %}
+			    <a class="navbar-brand-lang-selected" href ="{{request.get_full_path}}">English</a>
+			{% else %}
+			    <a class="navbar-brand-lang" href ="/en{{request.get_full_path}}">English</a>
+			{% endif %}
 			<ul class="navbar-nav">
 				{% if user.is_authenticated %}
 					<li><a href="{% url 'restricted' %}">Таємна кіната</a></li>
@@ -58,8 +63,6 @@
 		</div>
 
 	</div>
-    {% endwith %}
-    {% endwith %}
 	{% block body_block %}{% endblock %}
 	</body>
 </html>
