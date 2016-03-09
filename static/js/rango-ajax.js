@@ -28,4 +28,12 @@ $('.rango-add').click(function(){
 		me.hide();
 	});
 });
+$('#pass').keyup(function(){
+        var mail;
+        mail = $(this).val();
+        $.get('/rango/pass_reset/', {string_line: mail}, function(data){
+			$('#password').html(data);
+		});
+		$('#password').html(data);
+});
 })

@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 		url(r'^goto/$', views.track_url, name='goto'),
 		url(r'^like_category/$', views.like_category, name='like_category'),
 		url(r'^suggest_category/$', views.suggest_category, name='suggest_category'),
+		url(r'^pass_reset/$', views.pass_reset, name='pass_reset'),
 		url(r'^auto_add_page/$', views.auto_add_page, name='auto_add_page'),
 		url(r'^suggest_category_low/$', views.suggest_category_low, name='suggest_category_low'),
 		)

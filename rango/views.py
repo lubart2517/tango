@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category
-from rango.models  import Page
+from rango.models  import Page, UserProfile
 from rango.forms import CategoryForm
 from rango.forms import PageForm
 #from rango.forms import UserForm, UserProfileForm
@@ -175,6 +175,17 @@ def suggest_category(request):
 	cat_list = get_category_list(8, starts_with)
 
 	return render(request, 'rango/category_list.html', {'cat_list': cat_list })
+def pass_reset(request):
+	if request.method == 'GET':
+			starts_mail = request.GET['string_mail']
+	for users in UserProfile.objects.all():
+			if starts_mail==users.email:
+				e_mails_note="You typed correct mail"
+			else:
+				e_mails_note=="You e-mail doesnt registered"
+	e_mails_note=="You e-mail doesnt registered"
+	return render(request, 'rango/pass_reset.html', {'e_mails_note': e_mails_note })
+	
 @login_required
 def auto_add_page(request):
 	cat_id = None
