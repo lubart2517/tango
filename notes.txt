@@ -1,0 +1,10 @@
+mail.send(
+    '0972985743s@gmail.com', # List of email addresses also accepted
+    'lubomirvihvatniuk@gmail.com',
+	template='morning_mail',
+	context={'name': 'bar'},
+	priority='now',
+	)
+
+
+	$.get('/rango/pass_reset/', {string_mail: inserted_mail}, function(data){

@@ -17,7 +17,7 @@ $('#suggestion').keyup(function(){
 $('.rango-add').click(function(){
 	var catid
 	catid = $(this).attr("data-catid");
-	var url 
+	var url
 	url = $(this).attr("data-url");
 	var title
 	title = $(this).attr("data-title");
@@ -28,12 +28,10 @@ $('.rango-add').click(function(){
 		me.hide();
 	});
 });
-$('#pass').keyup(function(){
-        var mail;
-        mail = $(this).val();
-        $.get('/rango/pass_reset/', {string_line: mail}, function(data){
-			$('#password').html(data);
-		});
-		$('#password').html(data);
+$('#id_email').keyup (function(){
+        $(this).css('color', 'red');
+        var inserted_mail;
+        inserted_mail = $(this).val();
+        $('#mail_error').html(inserted_mail);
 });
 })

@@ -185,7 +185,7 @@ def pass_reset(request):
 				e_mails_note=="You e-mail doesnt registered"
 	e_mails_note=="You e-mail doesnt registered"
 	return render(request, 'rango/pass_reset.html', {'e_mails_note': e_mails_note })
-	
+
 @login_required
 def auto_add_page(request):
 	cat_id = None
