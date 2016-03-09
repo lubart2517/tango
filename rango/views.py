@@ -176,14 +176,12 @@ def suggest_category(request):
 
 	return render(request, 'rango/category_list.html', {'cat_list': cat_list })
 def pass_reset(request):
-	if request.method == 'GET':
-			starts_mail = request.GET['string_mail']
+	#if request.method == 'GET': request.GET['string_mail']
+	starts_mail = "lubomirvihvatniuk@gmail.com"
+	e_mails_note=""
 	for users in UserProfile.objects.all():
-			if starts_mail==users.email:
-				e_mails_note="You typed correct mail"
-			else:
-				e_mails_note=="You e-mail doesnt registered"
-	e_mails_note=="You e-mail doesnt registered"
+		if starts_mail==users.email:
+			e_mails_note="You e-mail registered"
 	return render(request, 'rango/pass_reset.html', {'e_mails_note': e_mails_note })
 
 @login_required

@@ -29,9 +29,10 @@ $('.rango-add').click(function(){
 	});
 });
 $('#id_email').keyup (function(){
-        $(this).css('color', 'red');
         var inserted_mail;
         inserted_mail = $(this).val();
-        $('#mail_error').html(inserted_mail);
+        $.get('/rango/pass_reset/', {string_mail: inserted_mail}, function(data){
+        $('#mail_error').html(data);
+        });
 });
 })
