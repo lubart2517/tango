@@ -34,7 +34,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = 'beyzelletko7' #my gmail password
 EMAIL_HOST_USER = 'lubomirvihvatniuk' #my gmail username
 EMAIL_PORT = 587
-
+POST_OFFICE = {
+    'DEFAULT_PRIORITY' : 'now'
+}
 
 
 # Application definition
@@ -82,7 +84,6 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-#LangCode='uk'
 LANGUAGE_CODE = 'uk'
 LANGUAGES = [
     ('uk', 'Ukrainian'),

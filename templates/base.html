@@ -3,8 +3,8 @@
 {% load staticfiles %}
 {% load i18n %}
 
-
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{LANGUAGE_CODE}}">
     <head>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src='/static/js/rango_jquery.js'></script>
@@ -15,7 +15,7 @@
 		<link href="/static/CSS/dashboard.css" rel="stylesheet">
     </head>
 	<body>
-	{% get_current_language as LANGUAGE_CODE %}
+	
     <div class="navbar">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="{% url 'index' %}">Сторінка Ранго</a>
@@ -38,6 +38,7 @@
 				{% else %}
 					<li><a href="{% url 'registration_register' %}">Зареєструватись</a></li>
 					<li><a href="{% url 'auth_login' %}">Увійти</a></li>
+					<li><a href="{% url 'auth_password_reset' %}">Забули пароль?</a></li>
 				{% endif %}
 					<li><a href="{% url 'about' %}">Про проект</a></li>
 					<li><a href="{% url 'polls:index' %}">Поллс</a></li>
